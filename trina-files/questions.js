@@ -73,6 +73,38 @@ console.log(merge(rayOne,rayTwo))
 
 //---------------------------------------------------
 
-function rmChars(str, charToDelete) {
-  
+function rmChars(str, chars) {
+  for (let i=0; i<chars.length; i++) {
+    while(str.indexOf(chars[i]) !== -1) {
+      let index = str.indexOf(chars[i]);
+      str = str.slice(0, index) + str.slice(index + 1)
+    }
+  }
+  return str
 }
+
+let str = 'Battle of the Vowels: Hawaii vs. Grozny'
+let chars = 'aeiou'
+
+console.log(rmChars(str, chars))
+
+//-----------------------------------------------
+
+function products(arr) {
+  let result = []
+  for (let i=0; i<arr.length; i++) {
+    let product = 1
+    for (let j=0; j<arr.length; j++) {
+      if (i !== j) {
+        product *= arr[j]
+      }     
+    }
+    result.push(product)
+  }
+  return result
+}
+
+let ray = [1, 3, 9, 4]
+console.log(products(ray))
+
+//-----------------------------------------------------
